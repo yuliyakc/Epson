@@ -1,16 +1,14 @@
 describe('Cypress Tests', () => {
     let emailForCode;
 
-    it('Sign Up', () => {
+    it('Buy Now PLP', () => {
         cy.fixture('secret').then((secretData) => {
             cy.visit(secretData.epsonHomePageUK);
             cy.get('.navigation__btn').eq(0).click();
             cy.get('a[href="/en_GB/login"]').eq(2).click();
             cy.get('a[tabindex="0"]').eq(1).click();
             cy.get('input[id="register.firstName"]').type(secretData.FirstName);
-            cy.wait(1000);
             cy.get('input[id="register.lastName"]').type(secretData.LastName);
-            cy.wait(1000);
             secretData.lastEmailNum = parseInt(secretData.lastEmailNum) + 1;
             console.log(secretData.lastEmailNum);
             cy.writeFile('./cypress/fixtures/secret.json', JSON.stringify(secretData));
@@ -26,35 +24,24 @@ describe('Cypress Tests', () => {
             cy.get('.checkbox').eq(2).click();
             cy.get('button[type="submit"]').eq(4).click();
             cy.wait(2000);
-            // cy.visit(secretData.epsonHomePageUK);
-            // cy.get('.navigation__btn').eq(0).click();
-            // cy.get('a[href="/en_GB/logout"]').eq(1).click();
-            // cy.get('.navigation__btn').eq(0).click();
-            // cy.get('a[href="/en_GB/login"]').eq(2).click();
-            // cy.get('a[tabindex="0"]').eq(0).click();
-            // cy.get('input[id="j_username"]').type(emailForCode);
-            // cy.wait(1000);
-            // cy.get('input[id="j_password"]').type(secretData.pass);
-            // cy.wait(1000);
-            // cy.get('button[type="submit"]').eq(3).click();
-        });
-    });
-
-    it('Sign In', () => {
-        cy.fixture('secret').then((secretData) => {
-            cy.visit(secretData.epsonHomePageUK);
-            cy.get('.navigation__btn').eq(0).click();
-            cy.get('a[href="/en_GB/login"]').eq(2).click();
-            cy.get('a[tabindex="0"]').eq(0).click();
+            cy.get('.navigation__btn').eq(1).click();
+            cy.get('input[name="text"]')
+                .type('12345693')
+                .type('{enter}')
             cy.wait(1000);
-            cy.get('input[id="j_username"]').type(emailForCode);
+            cy.get('.btn').eq(5).click();
             cy.wait(1000);
-            cy.get('input[id="j_password"]').type(secretData.pass);
+            cy.get('.btn').eq(7).click();
             cy.wait(1000);
-            cy.get('button[type="submit"]').eq(3).click();
-            cy.get('.navigation__btn').eq(0).click();
-            cy.get('a[href="/en_GB/products/printers/c/printers"]').eq(0).click();
-            //cy.log(emailForCode);
+            cy.get('input[name="quantity"]').clear();
+            cy.wait(1000);
+            cy.get('input[name="quantity"]').type('5');
+            cy.wait(1000);
+            cy.get('.btn').eq(7).click();
+            cy.wait(1000);
+            cy.get('.btn').eq(7).click();
+            cy.wait(1000);
+            //cy.get('.checkout-section').scrollTo('bottom');
         });
     });
 });
