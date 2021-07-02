@@ -31,17 +31,16 @@ describe('Cypress Tests', () => {
             cy.wait(1000);
             cy.get('.btn').eq(5).click();
             cy.wait(1000);
-            cy.get('.btn').eq(7).click();
-            cy.wait(1000);
             cy.get('input[name="quantity"]').clear();
             cy.wait(1000);
             cy.get('input[name="quantity"]').type('5');
             cy.wait(1000);
-            cy.get('.btn').eq(7).click();
+            cy.get('.btn').eq(5).click();
             cy.wait(1000);
-            cy.get('.btn').eq(7).click();
+            cy.get('.btn').eq(5).click();
             cy.wait(1000);
-            //cy.get('.checkout-section').scrollTo('bottom');
+            cy.scrollTo('center');
+            cy. get('#epsonAddressForm').scrollTo('bottom')
         });
     });
 });
