@@ -26,21 +26,32 @@ describe('Cypress Tests', () => {
             cy.wait(2000);
             cy.get('.navigation__btn').eq(1).click();
             cy.get('input[name="text"]')
-                .type('12345693')
+                .type('Expression Home XP-245')
                 .type('{enter}')
             cy.wait(1000);
-            cy.get('.btn').eq(5).click();
+            cy.get('.btn').eq(8).click();
             cy.wait(1000);
+            cy.get('.btn').eq(6).click();
             cy.get('input[name="quantity"]').clear();
             cy.wait(1000);
             cy.get('input[name="quantity"]').type('5');
             cy.wait(1000);
             cy.get('.btn').eq(5).click();
             cy.wait(1000);
-            cy.get('.btn').eq(5).click();
-            cy.wait(1000);
             cy.scrollTo('center');
-            cy. get('#epsonAddressForm').scrollTo('bottom')
+            cy.get('input[id="telephone"]').type('380676056305');
+            cy.wait(1000);
+            cy.get('input[id="address-finder"]').type('test');
+            cy.wait(3000);
+            let m = cy.get('.pcaitem').eq(2);
+            m.click();
+            //cy.log(m);
+            //cy.wait(3000);
+            //m = cy.get('.pcaitem').eq(2);
+            //m.click();
+            //cy.log(m);
+            cy.wait(1000);
+            cy.get('.btn').eq(1).click();
         });
     });
 });
