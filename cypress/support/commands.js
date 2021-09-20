@@ -29,3 +29,25 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
 })
+
+import 'cypress-iframe';
+
+// Cypress.Commands.add('getIframe', (iframe) => {
+//     return cy.get(iframe)
+//         .its('0.contentDocument.body')
+//        // .should('be.visible')
+//         .then(cy.wrap);
+// })
+
+
+const getIframeDocument = (iframe) => {
+    return cy
+        .get(iframe).eq(0)
+        .its('contentDocument').should('exist')
+}
+
+Cypress.Commands.add('getIframe', (iframe) => {
+    return getIframeDocument(iframe)
+        .its('body').should('not.be.undefined')
+        .then(cy.wrap)
+});

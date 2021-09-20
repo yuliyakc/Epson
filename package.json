@@ -13,6 +13,7 @@
   "author": "Yuliya",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^6.2.1"
+    "cypress": "^6.2.1",
+    "cypress-iframe": "^1.0.1"
   }
 }
