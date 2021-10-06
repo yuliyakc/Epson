@@ -1,1 +1,7 @@
-{}
+{
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 50000,
+  "pageLoadTimeout": 70000,
+  "watchForFileChanges": false,
+  "video" : false
+}
