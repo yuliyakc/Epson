@@ -79,7 +79,7 @@ describe('Cypress Tests', () => {
             cy.get('.checkbox').eq(0).click();
             cy.get('.checkbox').eq(1).click();
             cy.wait(3000);
-            //cy.get('.btn').click();
+            cy.get('.btn').click();
             //cy.get('.buttons-container').click();
             //test;
             cy.wait(3000);
