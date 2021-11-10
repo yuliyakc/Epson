@@ -54,7 +54,7 @@ describe('Cypress Tests', () => {
             cy.get('button[type="submit"]').eq(3).click();
             cy.get('.navigation__btn').eq(0).click();
             cy.get('a[href="/en_GB/products/printers/c/printers"]').eq(0).click();
-            //cy.log(emailForCode);
+            cy.log(emailForCode);
         });
     });
 });
